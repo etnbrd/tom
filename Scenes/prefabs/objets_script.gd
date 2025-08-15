@@ -26,10 +26,14 @@ func _on_area_3d_area_exited(area: Area3D) -> void:
 	$"../UI".clear_interaction()
 
 func interact() -> void:	
-	$"../UI".display_interaction(
-		character_name,
-		state_machine.get_state(thread_name),
-		face
-	)
-	
 	$"../UI".update_quest(state_machine.get_state("quest"))
+	
+	var state = state_machine.get_state(thread_name)
+	if state == "invisible":
+		queue_free()
+	else:
+		$"../UI".display_interaction(
+			character_name,
+			state,
+			face
+		)
