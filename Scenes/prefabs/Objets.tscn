@@ -1,0 +1,43 @@
+[gd_scene load_steps=8 format=3 uid="uid://bfcldaj6i7oom"]
+
+[ext_resource type="Script" uid="uid://chlcr76j41x6d" path="res://Scenes/prefabs/objets_script.gd" id="1_j7etn"]
+[ext_resource type="Texture2D" uid="uid://cgt7kcc7dftdi" path="res://Asset/texture/persos/texture_01.png" id="1_xetcy"]
+[ext_resource type="Texture2D" uid="uid://b4apqqkjtutok" path="res://Asset/icons/emote_dots3.png" id="3_81efv"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_gd06j"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wd8jf"]
+albedo_texture = ExtResource("1_xetcy")
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ki75a"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_xetcy"]
+height = 1.6543
+radius = 1.4873
+
+[node name="Objets" type="StaticBody3D"]
+script = ExtResource("1_j7etn")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("CapsuleMesh_gd06j")
+surface_material_override/0 = SubResource("StandardMaterial3D_wd8jf")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_ki75a")
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.172852, 0)
+shape = SubResource("CylinderShape3D_xetcy")
+
+[node name="icon_talk" type="Sprite3D" parent="."]
+transform = Transform3D(-0.5, 0, -4.37114e-08, 0, 0.5, 0, 4.37114e-08, 0, -0.5, 0, 1.17072, 0)
+texture = ExtResource("3_81efv")
+
+[node name="Label3D" type="Label3D" parent="icon_talk"]
+transform = Transform3D(-2, 0, -1.74846e-07, 0, 2, 0, 1.74846e-07, 0, -2, 0, 0.552616, 0)
+text = "Sylvie"
+
+[connection signal="area_entered" from="Area3D" to="." method="_on_area_3d_area_entered"]
+[connection signal="area_exited" from="Area3D" to="." method="_on_area_3d_area_exited"]

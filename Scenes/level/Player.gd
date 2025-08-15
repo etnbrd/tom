@@ -1,8 +1,10 @@
 extends CharacterBody3D
 
 
-const SPEED = 5.0
+const SPEED = 8.0
 
+var contact:String=""
+var face:CompressedTexture2D
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	if not is_on_floor():
@@ -24,7 +26,8 @@ func _physics_process(delta: float) -> void:
 
 	move_and_slide()
 
-func action():
-	print("azeazea")
+func action()->void:
+	print(contact)
+	$"../UI/Panel".visible=true
 	
 	pass
