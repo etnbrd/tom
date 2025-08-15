@@ -8,9 +8,9 @@
 [ext_resource type="Texture2D" uid="uid://ddxob0qi6xquv" path="res://Asset/portrait/vero.png" id="5_8gwo8"]
 [ext_resource type="Texture2D" uid="uid://c4wbqdu4bxjhp" path="res://Asset/portrait/nico.png" id="6_r0e2h"]
 [ext_resource type="FontFile" uid="uid://brdg0rkpgu0ew" path="res://Asset/fonts/Jersey10-Regular.ttf" id="7_4je8o"]
-[ext_resource type="Script" uid="uid://3cb2ih6ss4q6" path="res://Scripts/ui_talk.gd" id="7_r0e2h"]
-[ext_resource type="PackedScene" uid="uid://bb5u8187tqpt4" path="res://Scenes/prefabs/Porte.tscn" id="8_b8jcs"]
+[ext_resource type="PackedScene" path="res://Scenes/prefabs/Porte.tscn" id="8_b8jcs"]
 [ext_resource type="Texture2D" uid="uid://c1qsu0jh8pp6i" path="res://Asset/portrait/locked.png" id="9_780lt"]
+[ext_resource type="Script" uid="uid://df2bqeim6g1ps" path="res://Scenes/level/ui.gd" id="10_2etgy"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_50p28"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
@@ -179,8 +179,9 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("10_2etgy")
 
-[node name="Panel" type="Panel" parent="UI"]
+[node name="Interaction" type="Panel" parent="UI"]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
@@ -193,9 +194,8 @@ offset_right = 273.0
 offset_bottom = -45.0
 grow_horizontal = 2
 grow_vertical = 0
-script = ExtResource("7_r0e2h")
 
-[node name="name" type="Label" parent="UI/Panel"]
+[node name="label" type="Label" parent="UI/Interaction"]
 layout_mode = 0
 offset_left = 64.0
 offset_top = -26.0
@@ -204,7 +204,7 @@ offset_bottom = 17.0
 text = "Sylvie"
 label_settings = SubResource("LabelSettings_r0e2h")
 
-[node name="talk" type="Label" parent="UI/Panel"]
+[node name="content" type="Label" parent="UI/Interaction"]
 layout_mode = 0
 offset_left = 11.0
 offset_top = 17.0
@@ -215,7 +215,7 @@ Bonne journée !"
 label_settings = SubResource("LabelSettings_8gwo8")
 autowrap_mode = 3
 
-[node name="TextureRect" type="TextureRect" parent="UI/Panel"]
+[node name="icon" type="TextureRect" parent="UI/Interaction"]
 layout_mode = 0
 offset_left = -11.0
 offset_top = -89.0
@@ -223,14 +223,14 @@ offset_right = 60.0
 offset_bottom = 11.0
 texture = ExtResource("6_r0e2h")
 
-[node name="Panel_quest" type="Panel" parent="UI"]
+[node name="Quest" type="Panel" parent="UI"]
 layout_mode = 0
 offset_left = 27.0
 offset_top = 23.0
 offset_right = 269.0
 offset_bottom = 121.0
 
-[node name="Label" type="Label" parent="UI/Panel_quest"]
+[node name="label" type="Label" parent="UI/Quest"]
 layout_mode = 0
 offset_right = 236.0
 offset_bottom = 93.0

@@ -10,7 +10,7 @@ func _ready() -> void:
 	$icon_talk.visible=false
 	$icon_talk/Label3D.text=character_name
 	$face.texture=face
-	
+
 func _on_area_3d_area_entered(area: Area3D) -> void:
 	if(area.is_in_group("player")):
 		var player=area.get_parent()
@@ -23,11 +23,13 @@ func _on_area_3d_area_exited(area: Area3D) -> void:
 		player.object=null
 		$icon_talk.visible=false
 
-	$"../UI/Panel".visible=false
+	$"../UI".clear_interaction()
 
-func interact() -> void:
-	$"../UI/Panel/talk".text = state_machine.get_state(thread_name)
-	$"../UI/Panel/name".text = character_name
-	$"../UI/Panel/TextureRect".texture = face
-
-	$"../UI/Panel".visible=true
+func interact() -> void:	
+	$"../UI".display_interaction(
+		character_name,
+		state_machine.get_state(thread_name),
+		face
+	)
+	
+	$"../UI".update_quest(state_machine.get_state("quest"))
