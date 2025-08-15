@@ -30,7 +30,7 @@ func interact() -> void:
 	
 	var state = state_machine.get_state(thread_name)
 	if state == "invisible":
-		queue_free()
+		self.process_mode = Node.PROCESS_MODE_DISABLED
 	else:
 		$"../UI".display_interaction(
 			character_name,
