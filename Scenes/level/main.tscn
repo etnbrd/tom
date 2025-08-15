@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=4 uid="uid://dbp8f8yt3mnec"]
+[gd_scene load_steps=25 format=4 uid="uid://dbp8f8yt3mnec"]
 
 [ext_resource type="Texture2D" uid="uid://d24e78yram8ti" path="res://Asset/texture/texture_01.png" id="1_4xhcq"]
 [ext_resource type="Script" uid="uid://bghrm0r2fs8ai" path="res://Scenes/level/Player.gd" id="1_i77dq"]
@@ -8,9 +8,10 @@
 [ext_resource type="Texture2D" uid="uid://ddxob0qi6xquv" path="res://Asset/portrait/vero.png" id="5_8gwo8"]
 [ext_resource type="Texture2D" uid="uid://c4wbqdu4bxjhp" path="res://Asset/portrait/nico.png" id="6_r0e2h"]
 [ext_resource type="FontFile" uid="uid://brdg0rkpgu0ew" path="res://Asset/fonts/Jersey10-Regular.ttf" id="7_4je8o"]
-[ext_resource type="PackedScene" path="res://Scenes/prefabs/Porte.tscn" id="8_b8jcs"]
+[ext_resource type="PackedScene" uid="uid://bb5u8187tqpt4" path="res://Scenes/prefabs/Porte.tscn" id="8_b8jcs"]
 [ext_resource type="Texture2D" uid="uid://c1qsu0jh8pp6i" path="res://Asset/portrait/locked.png" id="9_780lt"]
 [ext_resource type="Script" uid="uid://df2bqeim6g1ps" path="res://Scenes/level/ui.gd" id="10_2etgy"]
+[ext_resource type="AudioStream" uid="uid://cgug6q4yumv2d" path="res://Asset/sound/talking.wav" id="10_yj3jm"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_50p28"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
@@ -171,6 +172,9 @@ face = ExtResource("9_780lt")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.53204, 0.999999, -8.16233)
 thread_name = "gilles"
 face = ExtResource("6_r0e2h")
+
+[node name="talking" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_yj3jm")
 
 [node name="UI" type="Control" parent="."]
 layout_mode = 3

@@ -14,6 +14,15 @@ func display_interaction(label: String, content: String, icon: CompressedTexture
 	$Interaction/content.text = content
 	$Interaction/icon.texture = icon
 	$Interaction.visible = true
+	var tween = create_tween()
+	tween.tween_method(set_label_text.bind(content), 0.0, 15.0, 1.0)
+	$"../talking".play(1.0+randf_range(0,4))
+	tween.finished.connect(func() -> void:$"../talking".stop())
+
+
+func set_label_text(value: float,content:String):
+	$Interaction/content.text=content.left(int((len(content)*value)/10.0))
+
 	
 func clear_interaction() -> void:
 	$Interaction.visible = false
