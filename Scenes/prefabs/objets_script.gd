@@ -3,10 +3,16 @@ extends StaticBody3D
 @export var thread_name:String
 @export var face:CompressedTexture2D
 
-var character_name
+var thread: Dictionary
+var character_name: String
+var dialogue: String
 
 func _ready() -> void:
-	character_name = state_machine.get_thread_meta(thread_name, "name")
+	state_machine.state_updated.connect(_on_update_state)
+	thread = state_machine.get_thread(thread_name)
+	character_name = thread["name"]
+	_on_update_state(0)
+	
 	$icon_talk.visible=false
 	$icon_talk/Label3D.text=character_name
 	$face.texture=face
@@ -25,15 +31,25 @@ func _on_area_3d_area_exited(area: Area3D) -> void:
 
 	$"../UI".clear_interaction()
 
-func interact() -> void:	
-	$"../UI".update_quest(state_machine.get_state("quest"))
+func _on_update_state(state_index: int) -> void:
+	var state = thread.states[state_index]
 	
-	var state = state_machine.get_state(thread_name)
-	if state == "invisible":
+	if state == "":
+		pass
+	elif state == "invisible":
 		self.process_mode = Node.PROCESS_MODE_DISABLED
+		dialogue = ""
 	else:
-		$"../UI".display_interaction(
-			character_name,
-			state,
-			face
-		)
+		self.process_mode = Node.PROCESS_MODE_INHERIT
+		dialogue = state
+		
+	print("updated ", thread_name, "(", state_index, ") with ", dialogue)
+
+func interact() -> void:	
+	state_machine.update_state(thread_name)
+
+	$"../UI".display_interaction(
+		character_name,
+		dialogue,
+		face
+	)

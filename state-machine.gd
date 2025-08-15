@@ -4,6 +4,8 @@ var scenario_path = "res://Scenario/tom.csv"
 var scenario
 var state_index = 0
 
+signal state_updated(state_index: int)
+
 func _ready():
 	scenario = parse_scenario(scenario_path)
 #
@@ -57,32 +59,23 @@ func parse_scenario(filePath):
 	file.close()
 	return scenario
 
-func get_thread_meta(thread_name: String, key: String) -> String:
+func get_thread(thread_name: String) -> Dictionary:
 	if !scenario.has(thread_name):
 		print("scenario has no thread named ", thread_name)
-		return ""
+		return {}
 	
-	var thread = scenario[thread_name]
-	if !thread.has(key):
-		print("thread ", thread_name, " has no key ", key)
-		return ""
-		
-	return thread[key]
-		
+	return scenario[thread_name]
 
-func get_state(thread_name: String) -> String:
-	
+func update_state(thread_name: String) -> void:
 	if !scenario.has(thread_name):
-		return "..."
+		print("unknown thread name in scenario: ", thread_name)
 	
 	var thread = scenario[thread_name]
 	if thread == null:
-		return "..."
+		print("null thread in scenario: ", thread_name)
 		
 	var state = thread["states"][state_index]
 
 	if state == "update":
 		state_index += 1
-		return get_state(thread_name)
-	
-	return state
+		state_updated.emit(state_index)
