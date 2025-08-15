@@ -32,18 +32,20 @@ func _on_area_3d_area_exited(area: Area3D) -> void:
 	$"../UI".clear_interaction()
 
 func _on_update_state(state_index: int) -> void:
+	# Avoid crashing at the end of the game
+	if (state_index >= thread.states.size()):
+		return
+
 	var state = thread.states[state_index]
-	
-	if state == "":
-		pass
-	elif state == "invisible":
-		self.process_mode = Node.PROCESS_MODE_DISABLED
-		dialogue = ""
-	else:
-		self.process_mode = Node.PROCESS_MODE_INHERIT
-		dialogue = state
-		
-	print("updated ", thread_name, "(", state_index, ") with ", dialogue)
+	match state:
+		"":
+			pass # no update
+		"invisible":
+			self.process_mode = Node.PROCESS_MODE_DISABLED
+			dialogue = ""
+		_:
+			self.process_mode = Node.PROCESS_MODE_INHERIT
+			dialogue = state
 
 func interact() -> void:	
 	state_machine.update_state(thread_name)
