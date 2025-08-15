@@ -1,0 +1,17 @@
+[remap]
+
+importer="csv_translation"
+type="Translation"
+uid="uid://cdf0fn34su3k7"
+
+[deps]
+
+files=["res://Scenario/tom.Sylvie.translation", "res://Scenario/tom.Giles.translation", "res://Scenario/tom.Nico.translation", "res://Scenario/tom.Bob.translation", "res://Scenario/tom.Claire.translation", "res://Scenario/tom.quest.translation", "res://Scenario/tom.porte.translation", "res://Scenario/tom.inventaire.translation", "res://Scenario/tom.end.translation"]
+
+source_file="res://Scenario/tom.csv"
+dest_files=["res://Scenario/tom.Sylvie.translation", "res://Scenario/tom.Giles.translation", "res://Scenario/tom.Nico.translation", "res://Scenario/tom.Bob.translation", "res://Scenario/tom.Claire.translation", "res://Scenario/tom.quest.translation", "res://Scenario/tom.porte.translation", "res://Scenario/tom.inventaire.translation", "res://Scenario/tom.end.translation"]
+
+[params]
+
+compress=true
+delimiter=0

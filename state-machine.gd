@@ -1,6 +1,22 @@
 extends Node
 
-class_name StateMachine
+
+func _ready():
+	print("ready")
+	var data = preload("res://Scenario/tom.csv")
+	print(data.records)  # array of data
+	#var text_content = get_text_file_content(text_file_path)
+	#print("text_content", text_content)
+#
+#func get_text_file_content(filePath):
+	#print("file path", filePath)
+	#var file = FileAccess.open(filePath, FileAccess.READ)
+	#print("file", file)
+	#var content = file.get_as_text()
+	#print("content", content)
+	#
+	#return content
+
 
 var state_index = 0
 
@@ -23,12 +39,14 @@ var states = [
 	},
 ]
 
-func get_state(thread_name: String):
-	var thread = states[state_index]
-	if thread == null:
+
+func get_state(thread_name: String) -> String:
+	var state = states[state_index]
+	
+	if state == null:
 		return "..."
 
-	var cell = states[state_index][thread]
+	var cell = state[thread_name]
 	
 	if cell == null:
 		return "..."

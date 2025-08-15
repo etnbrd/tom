@@ -25,6 +25,8 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 func action():
-	print("azeazea")
-	
+	#TODO send trigger event to closest object in range
+	var action = state_machine.get_state("Claire")
+	print(action)
+
 	pass
