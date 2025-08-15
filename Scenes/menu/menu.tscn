@@ -1,0 +1,72 @@
+[gd_scene load_steps=5 format=3 uid="uid://d8c0s6p25pdw"]
+
+[ext_resource type="Script" uid="uid://ghayyp8kqh17" path="res://Scenes/menu/menu.gd" id="1_l3vm7"]
+[ext_resource type="Texture2D" uid="uid://0xx38j7456j2" path="res://ico.png" id="1_ybiru"]
+[ext_resource type="FontFile" uid="uid://brdg0rkpgu0ew" path="res://Asset/fonts/Jersey10-Regular.ttf" id="2_l3vm7"]
+[ext_resource type="PackedScene" uid="uid://dsm7l3bdj5u2o" path="res://Scenes/menu/menu_button.tscn" id="4_ybiwj"]
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_l3vm7")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -151.5
+offset_top = -184.5
+offset_right = 151.5
+offset_bottom = 184.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+texture = ExtResource("1_ybiru")
+
+[node name="Title" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer2"]
+layout_mode = 2
+focus_neighbor_top = NodePath(".")
+focus_neighbor_bottom = NodePath(".")
+focus_next = NodePath(".")
+focus_previous = NodePath(".")
+theme_override_fonts/font = ExtResource("2_l3vm7")
+theme_override_font_sizes/font_size = 60
+text = "Où est Tom ?"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+
+[node name="Chercher Tom" parent="MarginContainer/HBoxContainer/VBoxContainer" instance=ExtResource("4_ybiwj")]
+layout_mode = 2
+focus_neighbor_top = NodePath("../Démissionner")
+focus_neighbor_bottom = NodePath("../Démissionner")
+focus_next = NodePath("../Démissionner")
+focus_previous = NodePath("../Démissionner")
+button_name = "Chercher Tom"
+
+[node name="Démissionner" parent="MarginContainer/HBoxContainer/VBoxContainer" instance=ExtResource("4_ybiwj")]
+layout_mode = 2
+focus_neighbor_top = NodePath("../Chercher Tom")
+focus_neighbor_bottom = NodePath("../Chercher Tom")
+focus_next = NodePath("../Chercher Tom")
+focus_previous = NodePath("../Chercher Tom")
+button_name = "Démissionner"

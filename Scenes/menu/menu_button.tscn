@@ -1,0 +1,28 @@
+[gd_scene load_steps=3 format=3 uid="uid://dsm7l3bdj5u2o"]
+
+[ext_resource type="Script" uid="uid://bh0pw3op2bccg" path="res://Scenes/menu/menu_button.gd" id="1_4p5sx"]
+[ext_resource type="FontFile" uid="uid://brdg0rkpgu0ew" path="res://Asset/fonts/Jersey10-Regular.ttf" id="1_5duia"]
+
+[node name="TextureButton" type="TextureButton"]
+custom_minimum_size = Vector2(300, 74)
+size_flags_vertical = 3
+script = ExtResource("1_4p5sx")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 2
+offset_top = 4.0
+offset_right = 206.0
+offset_bottom = 70.0
+focus_neighbor_top = NodePath(".")
+focus_neighbor_bottom = NodePath(".")
+focus_next = NodePath(".")
+focus_previous = NodePath(".")
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_fonts/font = ExtResource("1_5duia")
+theme_override_font_sizes/font_size = 60
+text = "Démarrer"
+
+[connection signal="focus_entered" from="." to="." method="_on_focus"]
+[connection signal="focus_exited" from="." to="." method="_on_blur"]
+[connection signal="pressed" from="." to="." method="_on_pressed"]
+[connection signal="focus_entered" from="Label" to="." method="_on_focus"]
