@@ -8,15 +8,22 @@ func _ready() -> void:
 func _on_area_3d_area_entered(area: Area3D) -> void:
 	if(area.is_in_group("player")):
 		var player=area.get_parent()
-		player.contact=chara_name
-		#if face:
-			#player.get_parent().face=face
+		player.object=self
 		$icon_talk.visible=true
 
 func _on_area_3d_area_exited(area: Area3D) -> void:
 	if(area.is_in_group("player")):
-		area.get_parent().contact=""
-		area.get_parent().face=null
-
-		area.get_parent().action()
+		var player=area.get_parent()
+		player.object=null
 		$icon_talk.visible=false
+		#
+	$"../UI/Panel".visible=false
+
+func interact() -> void:
+	var action = state_machine.get_state(chara_name)
+	
+	$"../UI/Panel/talk".text = action
+	$"../UI/Panel/name".text = chara_name
+	$"../UI/Panel/TextureRect".texture = face
+
+	$"../UI/Panel".visible=true

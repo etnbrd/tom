@@ -135,7 +135,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.114868, 0)
 shape = SubResource("CylinderShape3D_vafro")
 
 [node name="Objets" parent="." instance=ExtResource("3_ki75a")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 1, -1)
+transform = Transform3D(0.99976, 0, -0.0219196, 0, 1, 0, 0.0219196, 0, 0.99976, -5, 1, -1)
 chara_name = "Sylvie"
 face = ExtResource("4_vafro")
 
