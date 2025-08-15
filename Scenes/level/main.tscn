@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=4 uid="uid://dbp8f8yt3mnec"]
+[gd_scene load_steps=24 format=4 uid="uid://dbp8f8yt3mnec"]
 
 [ext_resource type="Texture2D" uid="uid://d24e78yram8ti" path="res://Asset/texture/texture_01.png" id="1_4xhcq"]
 [ext_resource type="Script" uid="uid://bghrm0r2fs8ai" path="res://Scenes/level/Player.gd" id="1_i77dq"]
@@ -9,6 +9,8 @@
 [ext_resource type="Texture2D" uid="uid://c4wbqdu4bxjhp" path="res://Asset/portrait/nico.png" id="6_r0e2h"]
 [ext_resource type="FontFile" uid="uid://brdg0rkpgu0ew" path="res://Asset/fonts/Jersey10-Regular.ttf" id="7_4je8o"]
 [ext_resource type="Script" uid="uid://3cb2ih6ss4q6" path="res://Scripts/ui_talk.gd" id="7_r0e2h"]
+[ext_resource type="PackedScene" uid="uid://bb5u8187tqpt4" path="res://Scenes/prefabs/Porte.tscn" id="8_b8jcs"]
+[ext_resource type="Texture2D" uid="uid://c1qsu0jh8pp6i" path="res://Asset/portrait/locked.png" id="9_780lt"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_50p28"]
 sky_horizon_color = Color(0.662243, 0.671743, 0.686743, 1)
@@ -58,6 +60,10 @@ font_size = 39
 [sub_resource type="LabelSettings" id="LabelSettings_8gwo8"]
 font = ExtResource("7_4je8o")
 font_size = 22
+
+[sub_resource type="LabelSettings" id="LabelSettings_b8jcs"]
+font = ExtResource("7_4je8o")
+font_size = 21
 
 [node name="Main" type="Node3D"]
 
@@ -130,6 +136,7 @@ shape = SubResource("CapsuleShape3D_50p28")
 transform = Transform3D(1, 0, 0, 0, 0.866025, 0.5, 0, -0.5, 0.866025, 0, 3.731, 5)
 
 [node name="Area3D" type="Area3D" parent="Player" groups=["player"]]
+transform = Transform3D(0.890617, -0.3102, 0.332531, 0.332497, 0.943042, -0.0108124, -0.310237, 0.120195, 0.94303, 0, 0, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Player/Area3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.114868, 0)
@@ -154,6 +161,11 @@ face = ExtResource("6_r0e2h")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.93064, 1, -14.2203)
 thread_name = "bob"
 face = ExtResource("5_4je8o")
+
+[node name="porte" parent="." instance=ExtResource("8_b8jcs")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -7.82961, 0, -15.4957)
+thread_name = "porte"
+face = ExtResource("9_780lt")
 
 [node name="Objets4" parent="." instance=ExtResource("3_ki75a")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.53204, 0.999999, -8.16233)
@@ -210,3 +222,18 @@ offset_top = -89.0
 offset_right = 60.0
 offset_bottom = 11.0
 texture = ExtResource("6_r0e2h")
+
+[node name="Panel_quest" type="Panel" parent="UI"]
+layout_mode = 0
+offset_left = 27.0
+offset_top = 23.0
+offset_right = 269.0
+offset_bottom = 121.0
+
+[node name="Label" type="Label" parent="UI/Panel_quest"]
+layout_mode = 0
+offset_right = 236.0
+offset_bottom = 93.0
+text = "quest"
+label_settings = SubResource("LabelSettings_b8jcs")
+autowrap_mode = 3
