@@ -2,8 +2,8 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b4apqqkjtutok"
-path.s3tc="res://.godot/imported/emote_dots3.png-0a724c3980c51b485a24e8a4cbc0a0c8.s3tc.ctex"
+uid="uid://blcrdy2gtwfms"
+path.s3tc="res://.godot/imported/sylvie.png-f1284db4a50f4cf968c6929e298a308a.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://Asset/icons/emote_dots3.png"
-dest_files=["res://.godot/imported/emote_dots3.png-0a724c3980c51b485a24e8a4cbc0a0c8.s3tc.ctex"]
+source_file="res://Asset/portrait/sylvie.png"
+dest_files=["res://.godot/imported/sylvie.png-f1284db4a50f4cf968c6929e298a308a.s3tc.ctex"]
 
 [params]
 
