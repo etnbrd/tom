@@ -16,7 +16,7 @@ func _on_area_3d_area_exited(area: Area3D) -> void:
 		var player=area.get_parent()
 		player.object=null
 		$icon_talk.visible=false
-		#
+
 	$"../UI/Panel".visible=false
 
 func interact() -> void:

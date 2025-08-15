@@ -1,21 +1,29 @@
 extends Node
 
+var text_file_path = "res://Scenario/tom.csv"
 
-#func _ready():
-	#print("ready")
-	#var data = preload("res://Scenario/tom.csv")
-	#print(data.records)  # array of data
-	#var text_content = get_text_file_content(text_file_path)
-	#print("text_content", text_content)
+func _ready():
+	var text_content = get_text_file_content(text_file_path)
+	print("text_content", text_content)
 #
-#func get_text_file_content(filePath):
-	#print("file path", filePath)
-	#var file = FileAccess.open(filePath, FileAccess.READ)
-	#print("file", file)
-	#var content = file.get_as_text()
-	#print("content", content)
-	#
-	#return content
+func get_text_file_content(filePath):
+	print("file path", filePath)
+	var file = FileAccess.open(filePath, FileAccess.READ)	
+	print("file", file)
+	
+	if file == null:
+		print("unable to open csv file at ", text_file_path)
+		return "stuffs"
+	
+	var states = []
+	#while not file.eof_reached():
+		#var line = file.get_csv_line(",")
+		#print("content", line)
+		##states = 
+		
+	#file.close()
+	
+	return "stuffs"
 
 
 var state_index = 0
