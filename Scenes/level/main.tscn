@@ -137,27 +137,27 @@ shape = SubResource("CylinderShape3D_vafro")
 
 [node name="Objets" parent="." instance=ExtResource("3_ki75a")]
 transform = Transform3D(0.99976, 0, -0.0219196, 0, 1, 0, 0.0219196, 0, 0.99976, -5, 1, -1)
-chara_name = "Sylvie"
+thread_name = "sylvie"
 face = ExtResource("4_vafro")
 
 [node name="Objets2" parent="." instance=ExtResource("3_ki75a")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.40368, 1, -9.47154)
-chara_name = "Claire"
+thread_name = "claire"
 face = ExtResource("5_8gwo8")
 
 [node name="Objets3" parent="." instance=ExtResource("3_ki75a")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.4219, 1, -13.1632)
-chara_name = "Nico"
+thread_name = "nico"
 face = ExtResource("6_r0e2h")
 
 [node name="Objets5" parent="." instance=ExtResource("3_ki75a")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.93064, 1, -14.2203)
-chara_name = "Bob"
+thread_name = "bob"
 face = ExtResource("5_4je8o")
 
 [node name="Objets4" parent="." instance=ExtResource("3_ki75a")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.53204, 0.999999, -8.16233)
-chara_name = "Giles"
+thread_name = "gilles"
 face = ExtResource("6_r0e2h")
 
 [node name="UI" type="Control" parent="."]

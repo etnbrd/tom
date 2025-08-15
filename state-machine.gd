@@ -1,68 +1,88 @@
 extends Node
 
-var text_file_path = "res://Scenario/tom.csv"
+var scenario_path = "res://Scenario/tom.csv"
+var scenario
+var state_index = 0
 
 func _ready():
-	var text_content = get_text_file_content(text_file_path)
-	print("text_content", text_content)
+	scenario = parse_scenario(scenario_path)
 #
-func get_text_file_content(filePath):
-	print("file path", filePath)
+func parse_scenario(filePath):
 	var file = FileAccess.open(filePath, FileAccess.READ)	
-	print("file", file)
 	
 	if file == null:
-		print("unable to open csv file at ", text_file_path)
+		print("unable to scenario file at ", filePath)
 		return "stuffs"
 	
 	var states = []
-	#while not file.eof_reached():
-		#var line = file.get_csv_line(",")
-		#print("content", line)
-		##states = 
+	var threads = []
+	var id_key = ""
+	while not file.eof_reached():
+		var line = file.get_csv_line(",")
+
+		var key = line.get(0)
+		var values = line.slice(1)
 		
-	#file.close()
+		# discard empty lines
+		if values.size() == 0:
+			continue
+		
+		if id_key == "":
+			id_key = key
+		
+		# Initialize threads
+		if threads.size() == 0:
+			for i in range(values.size()):
+				threads.append({
+					key: values[i],
+					"states": [],
+				})
+
+		# fill in threads
+		for i in range(threads.size()):
+			var thread = threads[i]
+			var value = values[i]
+			if key == "":
+				thread["states"].append(value)
+			else:
+				thread[key] = values[i]
+		
+	# Turn the list of threads into the key-based scenario
+	var scenario = {}
+	for thread in threads:
+		var key = thread[id_key]
+		scenario[key] = thread
+		pass
+		
+	file.close()
+	return scenario
+
+func get_thread_meta(thread_name: String, key: String) -> String:
+	if !scenario.has(thread_name):
+		print("scenario has no thread named ", thread_name)
+		return ""
 	
-	return "stuffs"
-
-
-var state_index = 0
-
-var states = [
-	{
-		"Sylvie": "j'attend une livraison de quelque chose mais à la place, j'ai reçu autre chose... je suis embêtée, je ne sais pas quoi faire avec... Bonne journée !",
-		"Giles": "update",
-		"Nico": "excel c'est excellent",
-		"Bob": "j'adore le lundi...",
-		"Claire": "ce travaille je pourrais le faire pour gratuit, mais je suis mal payé, quel imbécile ce patron",
-		"Porte": "closed",
-	},
-	{
-		"Sylvie": "oh lala tom je sais pas ou il est",
-		"Giles": "ca fait un moment qu'on n'a pas vu tom oui ?",
-		"Nico": "Tom.. le stagiaire ? pas vu",
-		"Bob": "tom, il aime le lundi aussi, mais son jour préféré c'est le mardi",
-		"Claire": "update",
-		"Porte": "closed",
-	},
-]
-
+	var thread = scenario[thread_name]
+	if !thread.has(key):
+		print("thread ", thread_name, " has no key ", key)
+		return ""
+		
+	return thread[key]
+		
 
 func get_state(thread_name: String) -> String:
-	var state = states[state_index]
-	if state == null:
+	
+	if !scenario.has(thread_name):
 		return "..."
-
-	if !state.has(thread_name):
+	
+	var thread = scenario[thread_name]
+	if thread == null:
 		return "..."
 		
-	var cell = state[thread_name]
-	
-	if cell == null or cell == "":
-		return "..."
-	
-	if cell == "update":
+	var state = thread["states"][state_index]
+
+	if state == "update":
 		state_index += 1
 		return get_state(thread_name)
 	
-	return cell
+	return state
