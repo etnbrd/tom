@@ -5,6 +5,8 @@ extends StaticBody3D
 func _ready() -> void:
 	$icon_talk.visible=false
 	$icon_talk/Label3D.text=chara_name
+	$face.texture=face
+	
 func _on_area_3d_area_entered(area: Area3D) -> void:
 	if(area.is_in_group("player")):
 		var player=area.get_parent()

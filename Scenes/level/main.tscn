@@ -1,10 +1,11 @@
-[gd_scene load_steps=20 format=4 uid="uid://dbp8f8yt3mnec"]
+[gd_scene load_steps=21 format=4 uid="uid://dbp8f8yt3mnec"]
 
 [ext_resource type="Texture2D" uid="uid://d24e78yram8ti" path="res://Asset/texture/texture_01.png" id="1_4xhcq"]
 [ext_resource type="Script" uid="uid://bghrm0r2fs8ai" path="res://Scenes/level/Player.gd" id="1_i77dq"]
 [ext_resource type="PackedScene" uid="uid://bfcldaj6i7oom" path="res://Scenes/prefabs/Objets.tscn" id="3_ki75a"]
 [ext_resource type="Texture2D" uid="uid://blcrdy2gtwfms" path="res://Asset/portrait/sylvie.png" id="4_vafro"]
 [ext_resource type="Texture2D" uid="uid://cnvtm08g53ofm" path="res://Asset/portrait/bob.png" id="5_4je8o"]
+[ext_resource type="Texture2D" uid="uid://ddxob0qi6xquv" path="res://Asset/portrait/vero.png" id="5_8gwo8"]
 [ext_resource type="Texture2D" uid="uid://c4wbqdu4bxjhp" path="res://Asset/portrait/nico.png" id="6_r0e2h"]
 [ext_resource type="FontFile" uid="uid://brdg0rkpgu0ew" path="res://Asset/fonts/Jersey10-Regular.ttf" id="7_4je8o"]
 [ext_resource type="Script" uid="uid://3cb2ih6ss4q6" path="res://Scripts/ui_talk.gd" id="7_r0e2h"]
@@ -140,18 +141,23 @@ chara_name = "Sylvie"
 face = ExtResource("4_vafro")
 
 [node name="Objets2" parent="." instance=ExtResource("3_ki75a")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 1, -11)
-chara_name = "Giles"
-face = ExtResource("5_4je8o")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.40368, 1, -9.47154)
+chara_name = "Claire"
+face = ExtResource("5_8gwo8")
 
-[node name="Objets4" parent="." instance=ExtResource("3_ki75a")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.01983, 1, -1.24139)
+[node name="Objets3" parent="." instance=ExtResource("3_ki75a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.4219, 1, -13.1632)
+chara_name = "Nico"
+face = ExtResource("6_r0e2h")
+
+[node name="Objets5" parent="." instance=ExtResource("3_ki75a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.93064, 1, -14.2203)
 chara_name = "Bob"
 face = ExtResource("5_4je8o")
 
-[node name="Objets3" parent="." instance=ExtResource("3_ki75a")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4, 1, -12)
-chara_name = "Nico"
+[node name="Objets4" parent="." instance=ExtResource("3_ki75a")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.53204, 0.999999, -8.16233)
+chara_name = "Giles"
 face = ExtResource("6_r0e2h")
 
 [node name="UI" type="Control" parent="."]
