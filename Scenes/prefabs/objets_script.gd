@@ -10,6 +10,7 @@ var dialogue: String
 func _ready() -> void:
 	state_machine.state_updated.connect(_on_update_state)
 	thread = state_machine.get_thread(thread_name)
+	print (thread)
 	character_name = thread["name"]
 	_on_update_state(0)
 	

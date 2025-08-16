@@ -1,6 +1,7 @@
 extends Node
 
-var scenario_path = "res://Scenario/tom.csv"
+#var scenario_path = "res://Scenario/tom.csv"
+var scenario_path = "res://Scenario/pokernight.csv"
 var scenario
 var state_index = 0
 
