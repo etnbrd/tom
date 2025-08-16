@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=4 uid="uid://dd7nwf55q0ukq"]
+[gd_scene load_steps=28 format=4 uid="uid://dd7nwf55q0ukq"]
 
 [ext_resource type="PackedScene" uid="uid://bpy3eb1scqlbd" path="res://Asset/3d/boat.glb" id="1_q6vbi"]
 [ext_resource type="Script" uid="uid://bghrm0r2fs8ai" path="res://Scenes/level/Player.gd" id="2_q6vbi"]
@@ -13,6 +13,7 @@
 [ext_resource type="Script" uid="uid://df2bqeim6g1ps" path="res://Scenes/level/ui.gd" id="11_h4sax"]
 [ext_resource type="FontFile" uid="uid://brdg0rkpgu0ew" path="res://Asset/fonts/Jersey10-Regular.ttf" id="12_cay1i"]
 [ext_resource type="Script" uid="uid://cplcku8lrer4a" path="res://Scenes/prefabs/auto.gd" id="12_it1dp"]
+[ext_resource type="AudioStream" uid="uid://wjy28c6e12nu" path="res://Asset/sound/up.wav" id="14_lw00t"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_q6vbi"]
 sky_top_color = Color(0.595044, 0.356231, 0.521482, 1)
@@ -134,9 +135,6 @@ face = ExtResource("9_dq047")
 transform = Transform3D(0.209807, 0, 0.977743, 0, 1, 0, -0.977743, 0, 0.209807, -8.35153, 1, -9.05417)
 thread_name = "jiro"
 face = ExtResource("6_5lshb")
-
-[node name="talking" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("10_l41qc")
 
 [node name="UI" type="Control" parent="."]
 layout_mode = 3
@@ -264,3 +262,9 @@ skeleton = NodePath("../..")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="floor"]
 shape = SubResource("WorldBoundaryShape3D_q6vbi")
+
+[node name="talking" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_l41qc")
+
+[node name="UP" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("14_lw00t")

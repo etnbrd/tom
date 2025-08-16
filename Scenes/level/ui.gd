@@ -29,6 +29,8 @@ func clear_interaction() -> void:
 	
 func update_quest(label: String) -> void:
 	$Quest/label.text = label
+	$"../UP".pitch_scale=1+randf_range(-.5,.5)
+	$"../UP".play()
 
 func _on_update_state(state_index: int) -> void:
 	self.update_quest(thread.states[state_index])
