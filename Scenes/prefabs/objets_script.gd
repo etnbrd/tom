@@ -10,7 +10,6 @@ var dialogue: String
 func _ready() -> void:
 	state_machine.state_updated.connect(_on_update_state)
 	thread = state_machine.get_thread(thread_name)
-	print (thread)
 	character_name = thread["name"]
 	_on_update_state(0)
 	
@@ -21,16 +20,23 @@ func _ready() -> void:
 func _on_area_3d_area_entered(area: Area3D) -> void:
 	if(area.is_in_group("player")):
 		var player=area.get_parent()
-		player.object=self
-		$icon_talk.visible=true
+		#player.object=self
+		player.add_contact(self)
 
 func _on_area_3d_area_exited(area: Area3D) -> void:
 	if(area.is_in_group("player")):
 		var player=area.get_parent()
-		player.object=null
-		$icon_talk.visible=false
+		#player.object=null
+		player.loose_contact(self)
 
 	$"../UI".clear_interaction()
+
+#what is happening when you can interract
+func talkable(is_talkable:bool)->void:
+	if is_talkable:
+		$icon_talk.visible=true
+	else:
+		$icon_talk.visible=false
 
 func _on_update_state(state_index: int) -> void:
 	# Avoid crashing at the end of the game
@@ -44,6 +50,7 @@ func _on_update_state(state_index: int) -> void:
 		"invisible":
 			self.process_mode = Node.PROCESS_MODE_DISABLED
 			dialogue = ""
+			visible=false
 		_:
 			self.process_mode = Node.PROCESS_MODE_INHERIT
 			dialogue = state

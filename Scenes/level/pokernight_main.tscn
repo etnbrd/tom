@@ -102,7 +102,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.114868, 0)
 shape = SubResource("CylinderShape3D_vafro")
 
 [node name="Camera3D" type="Camera3D" parent="Player"]
-transform = Transform3D(0.718228, 0.37332, -0.587181, 0, 0.843883, 0.536527, 0.695808, -0.385348, 0.606101, -14.6353, 13.6375, 16.5177)
+transform = Transform3D(0.75471, 0.50257, -0.421707, 0, 0.642788, 0.766044, 0.656059, -0.578141, 0.485118, -7.82809, 13.6375, 8.68109)
 projection = 1
 size = 12.0
 
@@ -121,11 +121,6 @@ transform = Transform3D(0.186627, 0, -0.982431, 0, 1, 0, 0.982431, 0, 0.186627, 
 thread_name = "vincent"
 face = ExtResource("6_5lshb")
 
-[node name="Penny" parent="." instance=ExtResource("3_lw00t")]
-transform = Transform3D(0.189164, 0, 0.981946, 0, 1, 0, -0.981946, 0, 0.189164, -6.34537, 0.999999, -11.3868)
-thread_name = "penny"
-face = ExtResource("7_g1484")
-
 [node name="porte" parent="." instance=ExtResource("8_wq4f6")]
 transform = Transform3D(-0.0108208, 0, -0.999942, 0, 1, 0, 0.999942, 0, -0.0108208, -2.06203, 0, -6.24927)
 thread_name = "door01"
@@ -135,6 +130,11 @@ face = ExtResource("9_dq047")
 transform = Transform3D(0.209807, 0, 0.977743, 0, 1, 0, -0.977743, 0, 0.209807, -8.35153, 1, -9.05417)
 thread_name = "jiro"
 face = ExtResource("6_5lshb")
+
+[node name="Penny2" parent="." instance=ExtResource("3_lw00t")]
+transform = Transform3D(0.189164, 0, 0.981946, 0, 1, 0, -0.981946, 0, 0.189164, -6.5816, 0.999999, -10.6303)
+thread_name = "penny"
+face = ExtResource("7_g1484")
 
 [node name="UI" type="Control" parent="."]
 layout_mode = 3
@@ -206,28 +206,15 @@ text = "quest"
 label_settings = SubResource("LabelSettings_b8jcs")
 autowrap_mode = 3
 
-[node name="auto" type="Node3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1, -13)
-visible = false
-script = ExtResource("12_it1dp")
-exist = "3-5"
-
-[node name="SpotLight3D" type="SpotLight3D" parent="auto"]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -5.7126, 3.71606, 1.79519)
-light_color = Color(0.311753, 0.385206, 0.607495, 1)
-light_energy = 30.0
-light_indirect_energy = 10.0
-light_specular = 0.338
-shadow_enabled = true
-
-[node name="DirectionalLight3D" type="DirectionalLight3D" parent="auto"]
-transform = Transform3D(-0.931691, -0.233493, 0.278267, 0, 0.766044, 0.642788, -0.363251, 0.59888, -0.713717, -1, -1, 13)
-shadow_enabled = true
+[node name="Penny" parent="." instance=ExtResource("3_lw00t")]
+transform = Transform3D(0.189164, 0, 0.981946, 0, 1, 0, -0.981946, 0, 0.189164, 4.56084, 0.999999, -0.3314)
+thread_name = "penny"
+face = ExtResource("7_g1484")
 
 [node name="auto2" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1, -13)
 script = ExtResource("12_it1dp")
-exist = "1,2"
+exist = "0-2"
 
 [node name="SpotLight3D" type="SpotLight3D" parent="auto2"]
 transform = Transform3D(-4.37114e-08, 1, 4.37114e-08, 0, -4.37114e-08, 1, 1, 4.37114e-08, 1.91069e-15, -8.83466, 3.76121, 9.2112)
@@ -257,6 +244,24 @@ shadow_enabled = true
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0.5, 1)
 mesh = SubResource("ArrayMesh_lw00t")
 skeleton = NodePath("../..")
+
+[node name="auto" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1, -13)
+visible = false
+script = ExtResource("12_it1dp")
+exist = "3-5"
+
+[node name="SpotLight3D" type="SpotLight3D" parent="auto"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -5.7126, 3.71606, 1.79519)
+light_color = Color(0.311753, 0.385206, 0.607495, 1)
+light_energy = 30.0
+light_indirect_energy = 10.0
+light_specular = 0.338
+shadow_enabled = true
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="auto"]
+transform = Transform3D(-0.931691, -0.233493, 0.278267, 0, 0.766044, 0.642788, -0.363251, 0.59888, -0.713717, -1, -1, 13)
+shadow_enabled = true
 
 [node name="floor" type="StaticBody3D" parent="."]
 
