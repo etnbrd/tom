@@ -6,14 +6,13 @@ const SPEED = 8.0
 var object: Node
 var objects: Array=[]
 
-#
+########################
 #var contact:String = ""
 #var face:CompressedTexture2D
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta
-
 	# Handle jump.
 	if Input.is_action_just_pressed("Action"):
 		action()
@@ -27,7 +26,6 @@ func _physics_process(delta: float) -> void:
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		velocity.z = move_toward(velocity.z, 0, SPEED)
-
 	#quand on se déplace 
 	#check si ca vaut le coup
 	#de savoir avec quoi on va interargir 
@@ -41,7 +39,6 @@ func action()->void:
 		
 
 ## PROXIMITY HANDELING
-
 func who_is_closest():
 	var closest_object: Node3D = null
 	var closest_distance = INF

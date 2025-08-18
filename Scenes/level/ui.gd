@@ -31,6 +31,9 @@ func update_quest(label: String) -> void:
 	$Quest/label.text = label
 	$"../UP".pitch_scale=1+randf_range(-.5,.5)
 	$"../UP".play()
+	var tween = get_tree().create_tween()
+	$Quest.scale=Vector2.ONE-.4*Vector2.ONE
+	tween.tween_property($Quest, "scale", Vector2.ONE, .6).set_trans(Tween.TRANS_ELASTIC)
 
 func _on_update_state(state_index: int) -> void:
 	self.update_quest(thread.states[state_index])

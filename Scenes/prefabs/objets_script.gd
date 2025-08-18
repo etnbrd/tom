@@ -3,6 +3,8 @@ extends StaticBody3D
 @export var thread_name:String
 @export var face:CompressedTexture2D
 
+@onready var UI:Control=get_tree().get_root().get_node("Main/UI")
+
 var thread: Dictionary
 var character_name: String
 var dialogue: String
@@ -28,8 +30,7 @@ func _on_area_3d_area_exited(area: Area3D) -> void:
 		var player=area.get_parent()
 		#player.object=null
 		player.loose_contact(self)
-
-	$"../UI".clear_interaction()
+	UI.clear_interaction()
 
 #what is happening when you can interract
 func talkable(is_talkable:bool)->void:
@@ -42,7 +43,6 @@ func _on_update_state(state_index: int) -> void:
 	# Avoid crashing at the end of the game
 	if (state_index >= thread.states.size()):
 		return
-
 	var state = thread.states[state_index]
 	match state:
 		"":
@@ -57,8 +57,7 @@ func _on_update_state(state_index: int) -> void:
 
 func interact() -> void:	
 	state_machine.update_state(thread_name)
-
-	$"../UI".display_interaction(
+	UI.display_interaction(
 		character_name,
 		dialogue,
 		face

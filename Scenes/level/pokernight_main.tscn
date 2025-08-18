@@ -1,6 +1,7 @@
-[gd_scene load_steps=28 format=4 uid="uid://dd7nwf55q0ukq"]
+[gd_scene load_steps=30 format=4 uid="uid://dd7nwf55q0ukq"]
 
 [ext_resource type="PackedScene" uid="uid://bpy3eb1scqlbd" path="res://Asset/3d/boat.glb" id="1_q6vbi"]
+[ext_resource type="Script" uid="uid://nwdw7yeuwg6s" path="res://Scenes/level/Camera_nodal.gd" id="2_6bwmi"]
 [ext_resource type="Script" uid="uid://bghrm0r2fs8ai" path="res://Scenes/level/Player.gd" id="2_q6vbi"]
 [ext_resource type="PackedScene" uid="uid://bfcldaj6i7oom" path="res://Scenes/prefabs/Objets.tscn" id="3_lw00t"]
 [ext_resource type="Texture2D" uid="uid://blcrdy2gtwfms" path="res://Asset/portrait/sylvie.png" id="4_6bwmi"]
@@ -44,9 +45,26 @@ dof_blur_amount = 0.05
 height = 1.77026
 radius = 0.991211
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6bwmi"]
+bg_color = Color(0.0980392, 0.101961, 0.137255, 0.329412)
+border_width_left = 2
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.420671, 0.882261, 0.917725, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 5
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 5
+shadow_color = Color(0, 0, 0, 0.203922)
+shadow_size = 5
+shadow_offset = Vector2(3.8, 3.04)
+
 [sub_resource type="LabelSettings" id="LabelSettings_r0e2h"]
 font = ExtResource("12_cay1i")
 font_size = 39
+outline_size = 10
+outline_color = Color(0, 0, 0, 0.878431)
 
 [sub_resource type="LabelSettings" id="LabelSettings_8gwo8"]
 font = ExtResource("12_cay1i")
@@ -85,6 +103,15 @@ camera_attributes = SubResource("CameraAttributesPractical_q6vbi")
 [node name="boat" parent="." instance=ExtResource("1_q6vbi")]
 transform = Transform3D(5.06639e-08, 0, -1.7, 0, 1.7, 0, 1.7, 0, 5.06639e-08, 2, 0.0246177, -12)
 
+[node name="Nodal" type="Node3D" parent="." node_paths=PackedStringArray("follow")]
+script = ExtResource("2_6bwmi")
+follow = NodePath("../Player")
+
+[node name="Camera3D" type="Camera3D" parent="Nodal"]
+transform = Transform3D(0.75471, 0.50257, -0.421707, 0, 0.642788, 0.766044, 0.656059, -0.578141, 0.485118, -7.82809, 15.6375, 8.68109)
+projection = 1
+size = 12.0
+
 [node name="Player" type="CharacterBody3D" parent="." groups=["player"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
 script = ExtResource("2_q6vbi")
@@ -100,11 +127,6 @@ shape = SubResource("CapsuleShape3D_50p28")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Player/Area3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.114868, 0)
 shape = SubResource("CylinderShape3D_vafro")
-
-[node name="Camera3D" type="Camera3D" parent="Player"]
-transform = Transform3D(0.75471, 0.50257, -0.421707, 0, 0.642788, 0.766044, 0.656059, -0.578141, 0.485118, -7.82809, 13.6375, 8.68109)
-projection = 1
-size = 12.0
 
 [node name="barmaid" parent="." instance=ExtResource("3_lw00t")]
 transform = Transform3D(0.99976, 0, -0.0219196, 0, 1, 0, 0.0219196, 0, 0.99976, -7.93422, 0.982461, -4.91134)
@@ -153,11 +175,12 @@ anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -278.0
-offset_top = -155.0
+offset_top = -181.0
 offset_right = 273.0
 offset_bottom = -45.0
 grow_horizontal = 2
 grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_6bwmi")
 
 [node name="label" type="Label" parent="UI/Interaction"]
 layout_mode = 0
@@ -189,27 +212,27 @@ texture = ExtResource("6_5lshb")
 
 [node name="Quest" type="Panel" parent="UI"]
 layout_mode = 1
-anchors_preset = 2
+anchors_preset = 3
+anchor_left = 1.0
 anchor_top = 1.0
+anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 23.0
-offset_top = -145.0
-offset_right = 265.0
-offset_bottom = -47.0
+offset_left = -277.0
+offset_top = -181.0
+offset_right = -35.0
+offset_bottom = -83.0
+grow_horizontal = 0
 grow_vertical = 0
 
 [node name="label" type="Label" parent="UI/Quest"]
 layout_mode = 0
-offset_right = 236.0
-offset_bottom = 93.0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 237.0
+offset_bottom = 89.0
 text = "quest"
 label_settings = SubResource("LabelSettings_b8jcs")
 autowrap_mode = 3
-
-[node name="Penny" parent="." instance=ExtResource("3_lw00t")]
-transform = Transform3D(0.189164, 0, 0.981946, 0, 1, 0, -0.981946, 0, 0.189164, 4.56084, 0.999999, -0.3314)
-thread_name = "penny"
-face = ExtResource("7_g1484")
 
 [node name="auto2" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1, -13)
@@ -262,6 +285,11 @@ shadow_enabled = true
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="auto"]
 transform = Transform3D(-0.931691, -0.233493, 0.278267, 0, 0.766044, 0.642788, -0.363251, 0.59888, -0.713717, -1, -1, 13)
 shadow_enabled = true
+
+[node name="Penny" parent="auto" instance=ExtResource("3_lw00t")]
+transform = Transform3D(0.189164, 0, 0.981946, 0, 1, 0, -0.981946, 0, 0.189164, 3.56084, -1.01328e-06, 12.6686)
+thread_name = "penny"
+face = ExtResource("7_g1484")
 
 [node name="floor" type="StaticBody3D" parent="."]
 
