@@ -28,7 +28,7 @@ func _on_area_3d_area_entered(area: Area3D) -> void:
 func _on_area_3d_area_exited(area: Area3D) -> void:
 	if(area.is_in_group("player")):
 		var player=area.get_parent()
-		#player.object=null
+		player.object=null
 		player.loose_contact(self)
 	UI.clear_interaction()
 
@@ -43,7 +43,7 @@ func _on_update_state(state_index: int) -> void:
 	# Avoid crashing at the end of the game
 	if (state_index >= thread.states.size()):
 		return
-	var state = thread.states[state_index]
+	var state = thread.states[state_machine.state_index]
 	match state:
 		"":
 			pass # no update

@@ -4,7 +4,7 @@ extends Node3D
 
 func _ready() -> void:
 	state_machine.state_updated.connect(_on_update_state)
-	_on_update_state(0)
+	_on_update_state(state_machine.state_index)
 
 func _on_update_state(state_index: int) -> void:
 	# Avoid crashing at the end of the game

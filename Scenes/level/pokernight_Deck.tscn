@@ -1,14 +1,15 @@
-[gd_scene load_steps=25 format=3 uid="uid://d4ljo50au4e6x"]
+[gd_scene load_steps=26 format=3 uid="uid://d4ljo50au4e6x"]
 
 [ext_resource type="Script" uid="uid://nwdw7yeuwg6s" path="res://Scenes/level/Camera_nodal.gd" id="2_m5os2"]
 [ext_resource type="Script" uid="uid://bghrm0r2fs8ai" path="res://Scenes/level/Player.gd" id="3_2vfbe"]
 [ext_resource type="PackedScene" uid="uid://bfcldaj6i7oom" path="res://Scenes/prefabs/Objets.tscn" id="4_r7vtv"]
-[ext_resource type="Texture2D" uid="uid://blcrdy2gtwfms" path="res://Asset/portrait/sylvie.png" id="5_0162q"]
 [ext_resource type="Texture2D" uid="uid://c4wbqdu4bxjhp" path="res://Asset/portrait/nico.png" id="7_1dlsa"]
 [ext_resource type="Script" uid="uid://bdijp7wdpu0ln" path="res://Asset/3d/level/deck/deck.gd" id="10_rq56t"]
 [ext_resource type="Script" uid="uid://df2bqeim6g1ps" path="res://Scenes/level/ui.gd" id="11_g3rah"]
+[ext_resource type="Texture2D" uid="uid://cnvtm08g53ofm" path="res://Asset/portrait/bob.png" id="12_47yyt"]
 [ext_resource type="FontFile" uid="uid://brdg0rkpgu0ew" path="res://Asset/fonts/Jersey10-Regular.ttf" id="12_dxuim"]
 [ext_resource type="PackedScene" uid="uid://cs3nbffedcou1" path="res://Asset/3d/level/deck/deck.glb" id="12_rq56t"]
+[ext_resource type="Texture2D" uid="uid://ddxob0qi6xquv" path="res://Asset/portrait/vero.png" id="13_47yyt"]
 [ext_resource type="AudioStream" uid="uid://cgug6q4yumv2d" path="res://Asset/sound/talking.wav" id="14_yjxbw"]
 [ext_resource type="AudioStream" uid="uid://wjy28c6e12nu" path="res://Asset/sound/up.wav" id="15_rc7xj"]
 [ext_resource type="PackedScene" uid="uid://cht1q6tcv8v0t" path="res://Scenes/prefabs/Go_to_scene.tscn" id="16_kqljx"]
@@ -88,7 +89,7 @@ script = ExtResource("2_m5os2")
 follow = NodePath("../Player")
 
 [node name="Camera3D" type="Camera3D" parent="Nodal"]
-transform = Transform3D(0.755757, 0.358601, -0.547938, -2.98172e-05, 0.836755, 0.547578, 0.654852, -0.413819, 0.632394, -12.0166, 8.93962, 13.5153)
+transform = Transform3D(0.755757, 0.358601, -0.547938, -2.98172e-05, 0.836755, 0.547578, 0.654852, -0.413819, 0.632394, -14.0255, 10.9472, 15.8338)
 projection = 1
 size = 17.714
 near = 0.002
@@ -205,5 +206,10 @@ script = ExtResource("10_rq56t")
 
 [node name="Objets" parent="." instance=ExtResource("4_r7vtv")]
 transform = Transform3D(0.937513, 0, -0.34795, 0, 1, 0, 0.34795, 0, 0.937513, 12.9218, -2.74285, -3.89879)
-thread_name = "marta"
-face = ExtResource("5_0162q")
+thread_name = "captain"
+face = ExtResource("12_47yyt")
+
+[node name="Objets2" parent="." instance=ExtResource("4_r7vtv")]
+transform = Transform3D(0.714912, 0, -0.699214, 0, 1, 0, 0.699214, 0, 0.714912, 13.2556, -2.74285, 0.744536)
+thread_name = "bram"
+face = ExtResource("13_47yyt")

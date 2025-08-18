@@ -46,6 +46,26 @@ dof_blur_amount = 0.05
 height = 1.77026
 radius = 0.991211
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_q6vbi"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_lw00t"]
+_surfaces = [{
+"aabb": AABB(-15.5, -4, -4.5, 31, 8, 12),
+"attribute_data": PackedByteArray("AACAPgAAAAAAAAAAAAAAAAAAgD8AAIA/AACAPgAAgD8AAAAAAAAAAAAAAAAAAIA/AAAAAAAAAAAAAIA+AACAPwAAgD8AAIA/AACAPwAAAAAAAAAAAAAAAAAAgD8AAIA/AAAAAAAAgD8AAIA/AABAPwAAAAAAAEA/AACAPwAAAAAAAAAAAAAAAAAAgD8AAIA/AAAAAAAAAAAAAAAAAACAPwAAgD8AAIA/AAAAAAAAAAAAAAAAAACAPwAAgD8AAIA/AAAAAAAAAAAAAAAAAACAPwAAgD8AAIA/AACAPwAAAAAAAAAAAAAAAAAAgD8AAIA/AAAAAAAAAAAAAAAAAACAPwAAgD8AAIA/AACAPwAAQD8AAAAAAACAPwAAgD8AAIA/AAAAAAAAAAAAAIA/AACAPwAAgD8AAAAAAACAPgAAAAAAAIA/AACAPwAAgD8AAAAAAACAPxljDD8AAIA/AAAAAAAAAAAAAAAAzjnnPgAAAADOOec+AACAPwAAgD8AAAAAAAAAAM455z4AAAAAAACAPwAAgD8AAIA/AAAAAAAAAAAAAAAAAACAPwAAgD8AAIA/AACAP8455z4AAAAAzjnnPgAAgD8AAIA/AACAPwAAgD8AAIA/AAAAAM455z4AAIA/AAAAAAAAAAAAAAAAGWMMPwAAgD8ZYww/AACAPwAAgD8AAIA/AAAAAM455z4AAIA/zjnnPgAAAADOOec+AACAPwAAgD8AAAAAAACAPwAAgD8AAIA/AAAAAAAAAAAAAAAA"),
+"format": 34359738391,
+"material": SubResource("StandardMaterial3D_q6vbi"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 72,
+"vertex_data": PackedByteArray("AADAPwAAgMAAAJBAAADAPwAAgMAAAPBAAAB4QQAAgMAAAJDAAADAPwAAgEAAAJBAAAB4QQAAgEAAAPBAAADAPwAAgEAAAPBAAAB4QQAAgEAAAPBAAADAPwAAgEAAAJBAAADAPwAAgEAAAJDAAADAPwAAgEAAAPBAAAB4QQAAgEAAAPBAAADAPwAAgMAAAPBAAADAPwAAgEAAAPBAAADAPwAAgMAAAJBAAADAPwAAgEAAAJBAAAB4QQAAgEAAAJDAAAB4QQAAgEAAAPBAAADAPwAAgEAAAJDAAAB4QQAAgEAAAPBAAAB4QQAAgEAAAJDAAAB4QQAAgMAAAJDAAAB4QQAAgMAAAJDAAAB4QQAAgEAAAJDAAADAPwAAgEAAAJDAAAB4QQAAgEAAAPBAAAB4QQAAgMAAAPBAAADAPwAAgMAAAPBAAAB4QQAAgMAAAPBAAAB4QQAAgEAAAPBAAAB4QQAAgMAAAJDAAADAPwAAgMAAAPBAAAB4QQAAgMAAAPBAAAB4QQAAgMAAAJDAAADAPwAAgMAAAJBAAADAPwAAgEAAAPBAAADAPwAAgMAAAPBAAAB4QQAAgMAAAJDAAADAPwAAgEAAAJDAAADAPwAAgMAAAJDAAADAPwAAgMAAAJBAAAB4QQAAgMAAAJDAAADAPwAAgMAAAJDAAADAPwAAgMAAAJDAAAB4wQAAgMAAAJDAAAB4wQAAgMAAAJBAAADAPwAAgEAAAJBAAADAPwAAgMAAAJBAAAB4wQAAgEAAAJBAAADAPwAAgEAAAJBAAAB4wQAAgEAAAJBAAAB4wQAAgEAAAJDAAAB4wQAAgEAAAJDAAAB4wQAAgEAAAJBAAAB4wQAAgMAAAJBAAADAPwAAgEAAAJDAAADAPwAAgEAAAJBAAAB4wQAAgEAAAJDAAAB4wQAAgEAAAJDAAAB4wQAAgMAAAJDAAADAPwAAgEAAAJDAAAB4wQAAgMAAAJBAAADAPwAAgMAAAJBAAADAPwAAgMAAAJDAAAB4wQAAgMAAAJBAAAB4wQAAgEAAAJBAAADAPwAAgMAAAJBAAADAPwAAgMAAAJDAAADAPwAAgEAAAJDAAAB4wQAAgMAAAJDAAAB4wQAAgMAAAJBAAAB4wQAAgMAAAJDAAAB4wQAAgEAAAJDA/38AAP//AAD/fwAA//8AAP9/AAD//wAA/3//////AAD/f/////8AAP9//////wAA/3//////AAD/f/////8AAP9//////wAA/3//fwAA/z//f/9/AAD/P/9//38AAP8/AAD/f/9//n8AAP9//3/+fwAA/3//f/5//3//////AAD/f/////8AAP9//////wAA////f/9//n////9//3/+f////3//f/5//////wAA/z//////AAD/P/////8AAP8//3//fwAA/z//f/9/AAD/P/9//38AAP8/////f/9//n////9//3/+f////3//f/5//38AAP//AAD/fwAA//8AAP9/AAD//wAAAAD/f/9//n8AAP9//3/+fwAA/3//f/5//////wAA/z//////AAD/P/////8AAP8//38AAP//AAD/fwAA//8AAP9/AAD//wAA/38AAP//AAD/fwAA//8AAP9/AAD//wAA/3//fwAA/z//f/9/AAD/P/9//38AAP8//3//////AAD/f/////8AAP9//////wAAAAD/f/9//n8AAP9//3/+fwAA/3//f/5//3//////AAD/f/////8AAP9//////wAA/////wAA/z//////AAD/P/////8AAP8//38AAP//AAD/fwAA//8AAP9/AAD//wAA/3//fwAA/z//f/9/AAD/P/9//38AAP8//////wAA/z//////AAD/P/////8AAP8/AAD/f/9//n8AAP9//3/+fwAA/3//f/5/")
+}]
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_q6vbi"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_5lshb"]
+size = Vector3(2.53885, 2.66492, 2.16022)
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6bwmi"]
 bg_color = Color(0.0980392, 0.101961, 0.137255, 0.329412)
 border_width_left = 2
@@ -74,26 +94,6 @@ font_size = 22
 [sub_resource type="LabelSettings" id="LabelSettings_b8jcs"]
 font = ExtResource("12_cay1i")
 font_size = 21
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_q6vbi"]
-albedo_color = Color(0, 0, 0, 1)
-
-[sub_resource type="ArrayMesh" id="ArrayMesh_lw00t"]
-_surfaces = [{
-"aabb": AABB(-15.5, -4, -4.5, 31, 8, 12),
-"attribute_data": PackedByteArray("AACAPgAAAAAAAAAAAAAAAAAAgD8AAIA/AACAPgAAgD8AAAAAAAAAAAAAAAAAAIA/AAAAAAAAAAAAAIA+AACAPwAAgD8AAIA/AACAPwAAAAAAAAAAAAAAAAAAgD8AAIA/AAAAAAAAgD8AAIA/AABAPwAAAAAAAEA/AACAPwAAAAAAAAAAAAAAAAAAgD8AAIA/AAAAAAAAAAAAAAAAAACAPwAAgD8AAIA/AAAAAAAAAAAAAAAAAACAPwAAgD8AAIA/AAAAAAAAAAAAAAAAAACAPwAAgD8AAIA/AACAPwAAAAAAAAAAAAAAAAAAgD8AAIA/AAAAAAAAAAAAAAAAAACAPwAAgD8AAIA/AACAPwAAQD8AAAAAAACAPwAAgD8AAIA/AAAAAAAAAAAAAIA/AACAPwAAgD8AAAAAAACAPgAAAAAAAIA/AACAPwAAgD8AAAAAAACAPxljDD8AAIA/AAAAAAAAAAAAAAAAzjnnPgAAAADOOec+AACAPwAAgD8AAAAAAAAAAM455z4AAAAAAACAPwAAgD8AAIA/AAAAAAAAAAAAAAAAAACAPwAAgD8AAIA/AACAP8455z4AAAAAzjnnPgAAgD8AAIA/AACAPwAAgD8AAIA/AAAAAM455z4AAIA/AAAAAAAAAAAAAAAAGWMMPwAAgD8ZYww/AACAPwAAgD8AAIA/AAAAAM455z4AAIA/zjnnPgAAAADOOec+AACAPwAAgD8AAAAAAACAPwAAgD8AAIA/AAAAAAAAAAAAAAAA"),
-"format": 34359738391,
-"material": SubResource("StandardMaterial3D_q6vbi"),
-"primitive": 3,
-"uv_scale": Vector4(0, 0, 0, 0),
-"vertex_count": 72,
-"vertex_data": PackedByteArray("AADAPwAAgMAAAJBAAADAPwAAgMAAAPBAAAB4QQAAgMAAAJDAAADAPwAAgEAAAJBAAAB4QQAAgEAAAPBAAADAPwAAgEAAAPBAAAB4QQAAgEAAAPBAAADAPwAAgEAAAJBAAADAPwAAgEAAAJDAAADAPwAAgEAAAPBAAAB4QQAAgEAAAPBAAADAPwAAgMAAAPBAAADAPwAAgEAAAPBAAADAPwAAgMAAAJBAAADAPwAAgEAAAJBAAAB4QQAAgEAAAJDAAAB4QQAAgEAAAPBAAADAPwAAgEAAAJDAAAB4QQAAgEAAAPBAAAB4QQAAgEAAAJDAAAB4QQAAgMAAAJDAAAB4QQAAgMAAAJDAAAB4QQAAgEAAAJDAAADAPwAAgEAAAJDAAAB4QQAAgEAAAPBAAAB4QQAAgMAAAPBAAADAPwAAgMAAAPBAAAB4QQAAgMAAAPBAAAB4QQAAgEAAAPBAAAB4QQAAgMAAAJDAAADAPwAAgMAAAPBAAAB4QQAAgMAAAPBAAAB4QQAAgMAAAJDAAADAPwAAgMAAAJBAAADAPwAAgEAAAPBAAADAPwAAgMAAAPBAAAB4QQAAgMAAAJDAAADAPwAAgEAAAJDAAADAPwAAgMAAAJDAAADAPwAAgMAAAJBAAAB4QQAAgMAAAJDAAADAPwAAgMAAAJDAAADAPwAAgMAAAJDAAAB4wQAAgMAAAJDAAAB4wQAAgMAAAJBAAADAPwAAgEAAAJBAAADAPwAAgMAAAJBAAAB4wQAAgEAAAJBAAADAPwAAgEAAAJBAAAB4wQAAgEAAAJBAAAB4wQAAgEAAAJDAAAB4wQAAgEAAAJDAAAB4wQAAgEAAAJBAAAB4wQAAgMAAAJBAAADAPwAAgEAAAJDAAADAPwAAgEAAAJBAAAB4wQAAgEAAAJDAAAB4wQAAgEAAAJDAAAB4wQAAgMAAAJDAAADAPwAAgEAAAJDAAAB4wQAAgMAAAJBAAADAPwAAgMAAAJBAAADAPwAAgMAAAJDAAAB4wQAAgMAAAJBAAAB4wQAAgEAAAJBAAADAPwAAgMAAAJBAAADAPwAAgMAAAJDAAADAPwAAgEAAAJDAAAB4wQAAgMAAAJDAAAB4wQAAgMAAAJBAAAB4wQAAgMAAAJDAAAB4wQAAgEAAAJDA/38AAP//AAD/fwAA//8AAP9/AAD//wAA/3//////AAD/f/////8AAP9//////wAA/3//////AAD/f/////8AAP9//////wAA/3//fwAA/z//f/9/AAD/P/9//38AAP8/AAD/f/9//n8AAP9//3/+fwAA/3//f/5//3//////AAD/f/////8AAP9//////wAA////f/9//n////9//3/+f////3//f/5//////wAA/z//////AAD/P/////8AAP8//3//fwAA/z//f/9/AAD/P/9//38AAP8/////f/9//n////9//3/+f////3//f/5//38AAP//AAD/fwAA//8AAP9/AAD//wAAAAD/f/9//n8AAP9//3/+fwAA/3//f/5//////wAA/z//////AAD/P/////8AAP8//38AAP//AAD/fwAA//8AAP9/AAD//wAA/38AAP//AAD/fwAA//8AAP9/AAD//wAA/3//fwAA/z//f/9/AAD/P/9//38AAP8//3//////AAD/f/////8AAP9//////wAAAAD/f/9//n8AAP9//3/+fwAA/3//f/5//3//////AAD/f/////8AAP9//////wAA/////wAA/z//////AAD/P/////8AAP8//38AAP//AAD/fwAA//8AAP9/AAD//wAA/3//fwAA/z//f/9/AAD/P/9//38AAP8//////wAA/z//////AAD/P/////8AAP8/AAD/f/9//n8AAP9//3/+fwAA/3//f/5/")
-}]
-
-[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_q6vbi"]
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_5lshb"]
-size = Vector3(2.53885, 2.66492, 2.16022)
 
 [node name="Main" type="Node3D"]
 
@@ -159,82 +159,6 @@ transform = Transform3D(0.189164, 0, 0.981946, 0, 1, 0, -0.981946, 0, 0.189164, 
 thread_name = "penny"
 face = ExtResource("7_g1484")
 
-[node name="UI" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-script = ExtResource("11_h4sax")
-
-[node name="Interaction" type="Panel" parent="UI"]
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -278.0
-offset_top = -181.0
-offset_right = 273.0
-offset_bottom = -45.0
-grow_horizontal = 2
-grow_vertical = 0
-theme_override_styles/panel = SubResource("StyleBoxFlat_6bwmi")
-
-[node name="label" type="Label" parent="UI/Interaction"]
-layout_mode = 0
-offset_left = 64.0
-offset_top = -26.0
-offset_right = 163.0
-offset_bottom = 17.0
-text = "Sylvie"
-label_settings = SubResource("LabelSettings_r0e2h")
-
-[node name="content" type="Label" parent="UI/Interaction"]
-layout_mode = 0
-offset_left = 11.0
-offset_top = 17.0
-offset_right = 539.0
-offset_bottom = 100.0
-text = "j'attend une livraison de quelque chose mais à la place, j'ai reçu autre chose... je suis embêtée, je ne sais pas quoi faire avec...
-Bonne journée !"
-label_settings = SubResource("LabelSettings_8gwo8")
-autowrap_mode = 3
-
-[node name="icon" type="TextureRect" parent="UI/Interaction"]
-layout_mode = 0
-offset_left = -11.0
-offset_top = -89.0
-offset_right = 60.0
-offset_bottom = 11.0
-texture = ExtResource("6_5lshb")
-
-[node name="Quest" type="Panel" parent="UI"]
-layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -277.0
-offset_top = -181.0
-offset_right = -35.0
-offset_bottom = -83.0
-grow_horizontal = 0
-grow_vertical = 0
-
-[node name="label" type="Label" parent="UI/Quest"]
-layout_mode = 0
-offset_left = 10.0
-offset_top = 10.0
-offset_right = 237.0
-offset_bottom = 89.0
-text = "quest"
-label_settings = SubResource("LabelSettings_b8jcs")
-autowrap_mode = 3
-
 [node name="auto2" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1, -13)
 visible = false
@@ -274,7 +198,7 @@ skeleton = NodePath("../..")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 1, -13)
 visible = false
 script = ExtResource("12_it1dp")
-exist = "3-5"
+exist = "3-1111"
 
 [node name="SpotLight3D" type="SpotLight3D" parent="auto"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -5.7126, 3.71606, 1.79519)
@@ -306,3 +230,86 @@ where = "res://Scenes/level/pokernight_Deck.tscn"
 [node name="CollisionShape3D" type="CollisionShape3D" parent="GoToScene"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0661774, 0.832458, -0.96237)
 shape = SubResource("BoxShape3D_5lshb")
+
+[node name="UI" type="Control" parent="."]
+z_index = 2
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("11_h4sax")
+
+[node name="Interaction" type="Panel" parent="UI"]
+z_index = 2
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -278.0
+offset_top = -181.0
+offset_right = 273.0
+offset_bottom = -45.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_6bwmi")
+
+[node name="label" type="Label" parent="UI/Interaction"]
+z_index = 2
+layout_mode = 0
+offset_left = 64.0
+offset_top = -26.0
+offset_right = 163.0
+offset_bottom = 17.0
+text = "Sylvie"
+label_settings = SubResource("LabelSettings_r0e2h")
+
+[node name="content" type="Label" parent="UI/Interaction"]
+z_index = 2
+layout_mode = 0
+offset_left = 11.0
+offset_top = 17.0
+offset_right = 539.0
+offset_bottom = 100.0
+text = "j'attend une livraison de quelque chose mais à la place, j'ai reçu autre chose... je suis embêtée, je ne sais pas quoi faire avec...
+Bonne journée !"
+label_settings = SubResource("LabelSettings_8gwo8")
+autowrap_mode = 3
+
+[node name="icon" type="TextureRect" parent="UI/Interaction"]
+z_index = 2
+layout_mode = 0
+offset_left = -11.0
+offset_top = -89.0
+offset_right = 60.0
+offset_bottom = 11.0
+texture = ExtResource("6_5lshb")
+
+[node name="Quest" type="Panel" parent="UI"]
+z_index = 2
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -277.0
+offset_top = -181.0
+offset_right = -35.0
+offset_bottom = -83.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="label" type="Label" parent="UI/Quest"]
+z_index = 2
+layout_mode = 0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 237.0
+offset_bottom = 89.0
+text = "quest"
+label_settings = SubResource("LabelSettings_b8jcs")
+autowrap_mode = 3

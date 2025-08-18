@@ -81,3 +81,4 @@ func update_state(thread_name: String) -> void:
 	if state == "update":
 		state_index += 1
 		state_updated.emit(state_index)
+		update_state(thread_name)
