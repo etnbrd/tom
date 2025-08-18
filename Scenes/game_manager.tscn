@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://sf0ac4h3thr"]
+
+[ext_resource type="PackedScene" uid="uid://d8c0s6p25pdw" path="res://Scenes/menu/menu.tscn" id="1_oj352"]
+
+[node name="GameManager" type="Node"]
+
+[node name="loadingArea" type="Node" parent="."]
+
+[node name="Menu" parent="loadingArea" instance=ExtResource("1_oj352")]

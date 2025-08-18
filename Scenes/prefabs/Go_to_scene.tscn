@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://cht1q6tcv8v0t"]
+
+[ext_resource type="Script" uid="uid://c3bu0fyivhxo1" path="res://Scenes/level/go_to_scene.gd" id="1_wx3dx"]
+
+[node name="GoToScene" type="Area3D"]
+script = ExtResource("1_wx3dx")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

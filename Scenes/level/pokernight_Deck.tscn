@@ -1,0 +1,209 @@
+[gd_scene load_steps=25 format=3 uid="uid://d4ljo50au4e6x"]
+
+[ext_resource type="Script" uid="uid://nwdw7yeuwg6s" path="res://Scenes/level/Camera_nodal.gd" id="2_m5os2"]
+[ext_resource type="Script" uid="uid://bghrm0r2fs8ai" path="res://Scenes/level/Player.gd" id="3_2vfbe"]
+[ext_resource type="PackedScene" uid="uid://bfcldaj6i7oom" path="res://Scenes/prefabs/Objets.tscn" id="4_r7vtv"]
+[ext_resource type="Texture2D" uid="uid://blcrdy2gtwfms" path="res://Asset/portrait/sylvie.png" id="5_0162q"]
+[ext_resource type="Texture2D" uid="uid://c4wbqdu4bxjhp" path="res://Asset/portrait/nico.png" id="7_1dlsa"]
+[ext_resource type="Script" uid="uid://bdijp7wdpu0ln" path="res://Asset/3d/level/deck/deck.gd" id="10_rq56t"]
+[ext_resource type="Script" uid="uid://df2bqeim6g1ps" path="res://Scenes/level/ui.gd" id="11_g3rah"]
+[ext_resource type="FontFile" uid="uid://brdg0rkpgu0ew" path="res://Asset/fonts/Jersey10-Regular.ttf" id="12_dxuim"]
+[ext_resource type="PackedScene" uid="uid://cs3nbffedcou1" path="res://Asset/3d/level/deck/deck.glb" id="12_rq56t"]
+[ext_resource type="AudioStream" uid="uid://cgug6q4yumv2d" path="res://Asset/sound/talking.wav" id="14_yjxbw"]
+[ext_resource type="AudioStream" uid="uid://wjy28c6e12nu" path="res://Asset/sound/up.wav" id="15_rc7xj"]
+[ext_resource type="PackedScene" uid="uid://cht1q6tcv8v0t" path="res://Scenes/prefabs/Go_to_scene.tscn" id="16_kqljx"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_q6vbi"]
+sky_top_color = Color(0.595044, 0.356231, 0.521482, 1)
+sky_horizon_color = Color(0.709345, 0.5511, 0.391415, 1)
+
+[sub_resource type="Sky" id="Sky_6bwmi"]
+sky_material = SubResource("ProceduralSkyMaterial_q6vbi")
+
+[sub_resource type="Environment" id="Environment_yswsw"]
+background_mode = 1
+sky = SubResource("Sky_6bwmi")
+ambient_light_source = 3
+tonemap_mode = 2
+
+[sub_resource type="CameraAttributesPractical" id="CameraAttributesPractical_q6vbi"]
+dof_blur_far_enabled = true
+dof_blur_far_distance = 30.0
+dof_blur_far_transition = 20.0
+dof_blur_near_distance = 25.0
+dof_blur_near_transition = 20.0
+dof_blur_amount = 0.05
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_50p28"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_50p28"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_vafro"]
+height = 1.77026
+radius = 0.991211
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6bwmi"]
+bg_color = Color(0.0980392, 0.101961, 0.137255, 0.329412)
+border_width_left = 2
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.420671, 0.882261, 0.917725, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 5
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 5
+shadow_color = Color(0, 0, 0, 0.203922)
+shadow_size = 5
+shadow_offset = Vector2(3.8, 3.04)
+
+[sub_resource type="LabelSettings" id="LabelSettings_r0e2h"]
+font = ExtResource("12_dxuim")
+font_size = 39
+outline_size = 10
+outline_color = Color(0, 0, 0, 0.878431)
+
+[sub_resource type="LabelSettings" id="LabelSettings_8gwo8"]
+font = ExtResource("12_dxuim")
+font_size = 22
+
+[sub_resource type="LabelSettings" id="LabelSettings_b8jcs"]
+font = ExtResource("12_dxuim")
+font_size = 21
+
+[sub_resource type="WorldBoundaryShape3D" id="WorldBoundaryShape3D_rq56t"]
+
+[node name="Main" type="Node3D"]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+shadow_enabled = true
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_yswsw")
+camera_attributes = SubResource("CameraAttributesPractical_q6vbi")
+
+[node name="Nodal" type="Node3D" parent="." node_paths=PackedStringArray("follow")]
+script = ExtResource("2_m5os2")
+follow = NodePath("../Player")
+
+[node name="Camera3D" type="Camera3D" parent="Nodal"]
+transform = Transform3D(0.755757, 0.358601, -0.547938, -2.98172e-05, 0.836755, 0.547578, 0.654852, -0.413819, 0.632394, -12.0166, 8.93962, 13.5153)
+projection = 1
+size = 17.714
+near = 0.002
+
+[node name="Player" type="CharacterBody3D" parent="." groups=["player"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.67856, -2.74285, -1.19574)
+script = ExtResource("3_2vfbe")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Player"]
+mesh = SubResource("CapsuleMesh_50p28")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Player"]
+shape = SubResource("CapsuleShape3D_50p28")
+
+[node name="Area3D" type="Area3D" parent="Player" groups=["player"]]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Player/Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.114868, 0)
+shape = SubResource("CylinderShape3D_vafro")
+
+[node name="UI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("11_g3rah")
+
+[node name="Interaction" type="Panel" parent="UI"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -278.0
+offset_top = -181.0
+offset_right = 273.0
+offset_bottom = -45.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxFlat_6bwmi")
+
+[node name="label" type="Label" parent="UI/Interaction"]
+layout_mode = 0
+offset_left = 64.0
+offset_top = -26.0
+offset_right = 163.0
+offset_bottom = 17.0
+text = "Sylvie"
+label_settings = SubResource("LabelSettings_r0e2h")
+
+[node name="content" type="Label" parent="UI/Interaction"]
+layout_mode = 0
+offset_left = 11.0
+offset_top = 17.0
+offset_right = 539.0
+offset_bottom = 100.0
+text = "j'attend une livraison de quelque chose mais à la place, j'ai reçu autre chose... je suis embêtée, je ne sais pas quoi faire avec...
+Bonne journée !"
+label_settings = SubResource("LabelSettings_8gwo8")
+autowrap_mode = 3
+
+[node name="icon" type="TextureRect" parent="UI/Interaction"]
+layout_mode = 0
+offset_left = -11.0
+offset_top = -89.0
+offset_right = 60.0
+offset_bottom = 11.0
+texture = ExtResource("7_1dlsa")
+
+[node name="Quest" type="Panel" parent="UI"]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -277.0
+offset_top = -181.0
+offset_right = -35.0
+offset_bottom = -83.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="label" type="Label" parent="UI/Quest"]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = 237.0
+offset_bottom = 89.0
+text = "quest"
+label_settings = SubResource("LabelSettings_b8jcs")
+autowrap_mode = 3
+
+[node name="talking" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("14_yjxbw")
+
+[node name="UP" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("15_rc7xj")
+
+[node name="GoToScene" parent="." instance=ExtResource("16_kqljx")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.359, -13.3316, 0.0613132)
+where = "res://Scenes/level/pokernight_UnderWater.tscn"
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="GoToScene"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.989403, 0)
+shape = SubResource("WorldBoundaryShape3D_rq56t")
+
+[node name="deck" parent="." instance=ExtResource("12_rq56t")]
+transform = Transform3D(-4.82869e-05, 0, 2.76743, 0, 2.76743, 0, -2.76743, 0, -4.82869e-05, 12.4092, -3.89358, -0.388517)
+script = ExtResource("10_rq56t")
+
+[node name="Objets" parent="." instance=ExtResource("4_r7vtv")]
+transform = Transform3D(0.937513, 0, -0.34795, 0, 1, 0, 0.34795, 0, 0.937513, 12.9218, -2.74285, -3.89879)
+thread_name = "marta"
+face = ExtResource("5_0162q")

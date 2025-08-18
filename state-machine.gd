@@ -3,11 +3,12 @@ extends Node
 #var scenario_path = "res://Scenario/tom.csv"
 var scenario_path = "res://Scenario/pokernight.csv"
 var scenario
-var state_index = 0
+var state_index 
 
 signal state_updated(state_index: int)
 
-func _ready():
+func _init() -> void:
+	state_index=0
 	scenario = parse_scenario(scenario_path)
 #
 func parse_scenario(filePath):
